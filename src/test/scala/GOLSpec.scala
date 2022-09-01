@@ -17,7 +17,7 @@
  * and the discrete moment at which this happens is sometimes called a tick. Each generation is a pure function of the preceding one. The rules continue to be applied repeatedly to create further generations.  
  */
 
-import Main.DeadCell
+import Main._
 import org.scalatest._
 import flatspec._
 import matchers._
@@ -27,6 +27,7 @@ class GOLSpec extends AnyFlatSpec with should.Matchers {
   "A cell with 0 live neighbors" should "die" in {
     val cell = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
     val updatedCells = update(cell)
+    updatedCells should be (cell)
 
   }
 
