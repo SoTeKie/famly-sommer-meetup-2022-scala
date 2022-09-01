@@ -25,10 +25,16 @@ import matchers._
 class GOLSpec extends AnyFlatSpec with should.Matchers {
 
   "A cell with 0 live neighbors" should "die" in {
-    val cell = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
-    val updatedCells = update(cell)
-    updatedCells should be (cell)
+    val cells = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
+    val updatedCells = update(cells)
+    updatedCells should be (cells)
+  }
 
+  "A live cell with 0 live neighbors" should "die" in {
+    val cells = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, AliveCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
+    val allDeadCells = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
+    val updatedCells = update(cells)
+    updatedCells should be (allDeadCells)
   }
 
 }
