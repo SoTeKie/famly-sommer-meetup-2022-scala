@@ -17,35 +17,17 @@
  * and the discrete moment at which this happens is sometimes called a tick. Each generation is a pure function of the preceding one. The rules continue to be applied repeatedly to create further generations.  
  */
 
-import collection.mutable.Stack
+import Main.DeadCell
 import org.scalatest._
 import flatspec._
 import matchers._
 
-class ExampleSpec extends AnyFlatSpec with should.Matchers {
-
-  "A Stack" should "pop values in last-in-first-out order" in {
-    val stack = new Stack[Int]
-    stack.push(1)
-    stack.push(2)
-    stack.pop() should be (2)
-    stack.pop() should be (1)
-  }
-
-  it should "throw NoSuchElementException if an empty stack is popped" in {
-    val emptyStack = new Stack[Int]
-    a [NoSuchElementException] should be thrownBy {
-      emptyStack.pop()
-    } 
-  }
-}
-
-
 class GOLSpec extends AnyFlatSpec with should.Matchers {
 
-  "A cell with 0 live neighbors should die" in {
-    val cell = List(List(DeadCell, DeadCell DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
+  "A cell with 0 live neighbors" should "die" in {
+    val cell = List(List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell), List(DeadCell, DeadCell, DeadCell))
 
   }
 
 }
+
