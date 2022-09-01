@@ -4,5 +4,5 @@ object Main extends App {
   final case object AliveCell extends Cell
 
   def update(cells: List[List[Cell]]): Cell = 
-  if (cells.flatten.filter(_ == AliveCell).size == 3) AliveCell else DeadCell
+  if (cells.flatten.count(_ == AliveCell) > 2) AliveCell else DeadCell
 }
