@@ -50,5 +50,13 @@ class GOLSpec extends AnyFlatSpec with should.Matchers {
     updatedCell should be (AliveCell)
   }
 
+  "A live cell with 3 live neighbors" should "live" in {
+    val cells = List(List(DeadCell, AliveCell, DeadCell), List(AliveCell, AliveCell, AliveCell), List(DeadCell, DeadCell, DeadCell))
+    val updatedCell = update(cells)
+    updatedCell should be (AliveCell)
+  }
+
+
+
 }
 
